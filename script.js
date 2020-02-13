@@ -63,6 +63,25 @@ function doubleTheMoney() {
   updateDOM(data)
 }
 
+// Sorts the money by richest
+function sortByRichest() {
+  data = data.sort((a, b) => {
+    return b.money - a.money
+  })
+
+  updateDOM()
+}
+
+// Filters the users and only shows the millionaires
+function showMillionaires() {
+  data = data.filter(user => user.money >= 1000000)
+
+  updateDOM()
+}
+
 // Event listeners
 addUserBtn.addEventListener('click', getRandomUser)
 doubleBtn.addEventListener('click', doubleTheMoney)
+sortBtn.addEventListener('click', sortByRichest)
+showMillionairesBtn.addEventListener('click', showMillionaires)
+calculateWealthBtn.addEventListener('click', calculateWealth)
