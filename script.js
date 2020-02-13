@@ -79,6 +79,17 @@ function showMillionaires() {
   updateDOM()
 }
 
+// Totals and adds up the wealth of all the users
+function calculateWealth() {
+  const wealth = data.reduce((acc, user) => acc + user.money, 0)
+
+  const wealthElement = document.createElement('div')
+  wealthElement.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(
+    wealth
+  )}</strong></h3>`
+  main.appendChild(wealthElement)
+}
+
 // Event listeners
 addUserBtn.addEventListener('click', getRandomUser)
 doubleBtn.addEventListener('click', doubleTheMoney)
